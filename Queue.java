@@ -11,6 +11,22 @@ public class Queue {
         nextElementIndex = 0;
     }
 
+    public static DoubleEndedQueue convertCircularQueueInDoubleEnded(Queue queue) {
+        DoubleEndedQueue doubleEndedQueue = new DoubleEndedQueue(queue.length);
+        int element = 0;
+
+        if (queue.isEmpty()) {
+            return doubleEndedQueue;
+        }
+
+        while (!queue.isEmpty()) {
+            element = queue.removeElement();
+            doubleEndedQueue.addElement(element);
+        }
+
+        return doubleEndedQueue;
+    }
+
     public boolean isEmpty() {
         return numberOfElements == 0;
     }
